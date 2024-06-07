@@ -1,7 +1,14 @@
 import * as React from 'react';
 import { Avatar, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const FriendTable = ({ friends, handleDeleteAll, handleDelete, rowsPerPage, page }) => {
+  const navigate = useNavigate();
+
+  const handleFriendClick = (id) => {
+    navigate(`/amigo/${id}`);
+  };
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -19,7 +26,12 @@ const FriendTable = ({ friends, handleDeleteAll, handleDelete, rowsPerPage, page
   ? friends.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
   : friends
   ).map((friend) => (
-  <TableRow key={friend.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+  <TableRow key={friend.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+    onClick={() => handleFriendClick(friend.id)} 
+  style={{ cursor: 'pointer' }} 
+>
+
+
     <TableCell align="left">
       <Avatar alt={friend.name} src={friend.image_url} />
     </TableCell>

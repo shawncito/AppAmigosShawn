@@ -1,3 +1,18 @@
 {
-  "friends": []
+  "friends": [
+    {
+      "id": "a579",
+      "name": "SASD",
+      "nickname": "ADS",
+      "image_url": "ASDASD",
+      "is_best_friend": false
+    },
+    {
+      "id": "cbfe",
+      "name": "asdsd",
+      "nickname": "sdasd",
+      "image_url": "sads",
+      "is_best_friend": true
+    }
+  ]
 }
